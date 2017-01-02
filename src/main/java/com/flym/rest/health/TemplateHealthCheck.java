@@ -16,7 +16,7 @@ public class TemplateHealthCheck extends HealthCheck {
     protected Result check() throws Exception {
         final String saying = String.format(template, "TEST");
         if (!saying.contains("TEST")) {
-            return Result.healthy("template doesn't have a name.");
+            return Result.unhealthy("template doesn't have a name.");
         }
         return Result.healthy();
     }

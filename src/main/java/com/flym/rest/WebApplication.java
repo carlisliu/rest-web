@@ -1,5 +1,6 @@
 package com.flym.rest;
 
+import com.flym.rest.bundles.MyConfiguredBundle;
 import com.flym.rest.health.TemplateHealthCheck;
 import com.flym.rest.resources.HelloResource;
 import io.dropwizard.Application;
@@ -19,7 +20,7 @@ public class WebApplication extends Application<WebConfiguration> {
 
     @Override
     public void initialize(final Bootstrap<WebConfiguration> bootstrap) {
-        // TODO: application initialization
+        bootstrap.addBundle(new MyConfiguredBundle());
     }
 
     @Override

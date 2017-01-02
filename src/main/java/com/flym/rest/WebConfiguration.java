@@ -1,12 +1,14 @@
 package com.flym.rest;
 
+import com.flym.rest.bundles.MyConfiguredBundle;
+import com.flym.rest.bundles.MyConfiguredBundleConfig;
 import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.*;
 
 import javax.validation.constraints.*;
 
-public class WebConfiguration extends Configuration {
+public class WebConfiguration extends Configuration implements MyConfiguredBundleConfig {
     @NotEmpty
     private String template;
 
@@ -31,5 +33,10 @@ public class WebConfiguration extends Configuration {
     @JsonProperty
     public void setDefaultName(String defaultName) {
         this.defaultName = defaultName;
+    }
+
+    @Override
+    public String getBundleSpecificConfig() {
+        return "custome config...";
     }
 }
