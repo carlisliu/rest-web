@@ -4,6 +4,7 @@ import com.flym.rest.bundles.MyConfiguredBundle;
 import com.flym.rest.health.TemplateHealthCheck;
 import com.flym.rest.resources.HelloResource;
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
@@ -21,6 +22,7 @@ public class WebApplication extends Application<WebConfiguration> {
     @Override
     public void initialize(final Bootstrap<WebConfiguration> bootstrap) {
         bootstrap.addBundle(new MyConfiguredBundle());
+        //bootstrap.addBundle(new AssetsBundle("/assets/css", "/css", null, "css"));
     }
 
     @Override
