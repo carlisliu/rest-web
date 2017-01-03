@@ -2,6 +2,7 @@ package com.flym.rest.resources.admin;
 
 import com.codahale.metrics.annotation.Timed;
 import com.flym.rest.api.admin.SysUser;
+import com.flym.rest.db.PersonDAO;
 import com.flym.rest.resources.Result;
 import io.dropwizard.jersey.params.LongParam;
 
@@ -18,7 +19,10 @@ import javax.ws.rs.core.Response;
 @Produces(MediaType.APPLICATION_JSON)
 public class UserResource {
 
-    public UserResource() {
+    final private PersonDAO dao;
+
+    public UserResource(PersonDAO dao) {
+        this.dao = dao;
     }
 
     @GET
