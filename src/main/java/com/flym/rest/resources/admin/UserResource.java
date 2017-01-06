@@ -63,6 +63,7 @@ public class UserResource {
     }
 
     private SysUser saveSysUser(SysUser user) {
+        this.dao.save();
         return user;
     }
 
